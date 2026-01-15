@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Projetos Profissionais | WebCod Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Poppins', sans-serif;
+    color:#fff;
+    min-height:100vh;
+    background:#050d18;
+    overflow-x:hidden;
+}
+
+/* FUNDO GRADIENTE ANIMADO */
+.bg-gradient{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(120deg,#050d18,#0b1f3a,#051b2e);
+    background-size:300% 300%;
+    animation:bgMove 18s ease infinite;
+    z-index:-4;
+}
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* PARTÍCULAS */
+.particles{
+    position:fixed;
+    inset:0;
+    z-index:-3;
+}
+.particles span{
+    position:absolute;
+    width:6px;
+    height:6px;
+    background:rgba(0,242,254,.5);
+    border-radius:50%;
+    animation:particle 25s linear infinite;
+}
+@keyframes particle{
+    from{transform:translateY(120vh);opacity:0;}
+    10%{opacity:1;}
+    to{transform:translateY(-140vh);opacity:0;}
+}
+
+/* VITRINES FLUTUANTES */
+.vitrines{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+}
+.vitrine{
+    position:absolute;
+    width:200px;
+    height:130px;
+    border-radius:20px;
+    background:rgba(255,255,255,.07);
+    backdrop-filter:blur(14px);
+    animation:float 16s ease-in-out infinite;
+}
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-30px);}
+}
+.vitrine:nth-child(1){top:20%;left:5%;}
+.vitrine:nth-child(2){top:60%;left:10%;animation-duration:20s;}
+.vitrine:nth-child(3){top:30%;right:6%;}
+.vitrine:nth-child(4){top:70%;right:12%;animation-duration:22s;}
+
+/* HEADER */
+header{
+    text-align:center;
+    padding:50px 20px 20px;
+}
+header h1{
+    font-size:36px;
+    font-weight:800;
+    background:linear-gradient(90deg,#00c6ff,#00f2fe,#00c6ff);
+    background-size:200%;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:textGlow 4s linear infinite;
+}
+@keyframes textGlow{
+    to{background-position:200%;}
+}
+header p{
+    margin-top:10px;
+    font-size:15px;
+    opacity:.85;
+}
+
+/* CONTAINER */
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+    animation:fadeUp 1.2s ease;
+}
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(30px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+/* INTRO */
+.intro{
+    text-align:center;
+    max-width:760px;
+    margin:40px auto 70px;
+}
+.intro h2{
+    font-size:26px;
+    margin-bottom:12px;
+}
+.intro p{
+    font-size:15px;
+    opacity:.85;
+}
+
+/* PLANOS */
+.planos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:28px;
+    margin-bottom:80px;
+}
+.plano{
+    background:rgba(255,255,255,.12);
+    border-radius:24px;
+    padding:32px 24px;
+    text-align:center;
+    backdrop-filter:blur(14px);
+    transition:.35s;
+}
+.plano:hover{
+    transform:translateY(-12px) scale(1.02);
+    box-shadow:0 20px 40px rgba(0,0,0,.4);
+}
+.plano h3{
+    font-size:22px;
+    margin-bottom:10px;
+}
+.plano span{
+    font-size:34px;
+    font-weight:700;
+    color:#00f2fe;
+}
+.plano ul{
+    list-style:none;
+    margin:22px 0;
+    font-size:14px;
+    opacity:.85;
+}
+.plano ul li{margin-bottom:8px;}
+
+/* FORM */
+.form-section{
+    max-width:680px;
+    margin:auto;
+    background:rgba(255,255,255,.12);
+    border-radius:28px;
+    padding:38px;
+    backdrop-filter:blur(16px);
+}
+.form-section h2{
+    text-align:center;
+    margin-bottom:22px;
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    font-size:14px;
+}
+input,select,textarea{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:14px;
+    margin-top:6px;
+    font-family:'Poppins';
+}
+textarea{resize:none;}
+
+.valor{
+    margin-top:25px;
+    background:rgba(0,0,0,.45);
+    padding:18px;
+    border-radius:18px;
+    text-align:center;
+}
+.valor span{
+    font-size:32px;
+    font-weight:700;
+    color:#00f2fe;
+}
+
+button{
+    margin-top:28px;
+    width:100%;
+    padding:18px;
+    font-size:16px;
+    font-weight:600;
+    border:none;
+    border-radius:16px;
+    cursor:pointer;
+    background:linear-gradient(135deg,#00c6ff,#0072ff);
+    color:#fff;
+    transition:.3s;
+}
+button:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 30px rgba(0,198,255,.8);
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:50px 10px 25px;
+    font-size:13px;
+    opacity:.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-gradient"></div>
+
+<div class="particles">
+  <span style="left:5%"></span><span style="left:15%"></span><span style="left:30%"></span>
+  <span style="left:45%"></span><span style="left:60%"></span><span style="left:75%"></span>
+  <span style="left:90%"></span>
+</div>
+
+<div class="vitrines">
+  <div class="vitrine"></div>
+  <div class="vitrine"></div>
+  <div class="vitrine"></div>
+  <div class="vitrine"></div>
+</div>
+
+<header>
+<h1>WebCod Studio</h1>
+<p>Projetos Profissionais • Soluções digitais completas</p>
+</header>
+
+<div class="container">
+
+<section class="intro">
+<h2>Projetos para empresas e negócios privados</h2>
+<p>
+Trabalhamos com <strong>planos mensais</strong>, garantindo evolução contínua,
+suporte e manutenção.  
+Não atuamos com serviços públicos.
+</p>
+</section>
+
+<section class="planos">
+<div class="plano">
+<h3>Site Profissional</h3>
+<span>R$150/mês</span>
+<ul>
+<li>Design premium</li>
+<li>Responsivo</li>
+<li>Suporte mensal</li>
+</ul>
+</div>
+
+<div class="plano">
+<h3>Loja Virtual</h3>
+<span>R$250/mês</span>
+<ul>
+<li>Pagamentos online</li>
+<li>Produtos ilimitados</li>
+<li>Manutenção contínua</li>
+</ul>
+</div>
+
+<div class="plano">
+<h3>Sistema Web</h3>
+<span>R$350/mês</span>
+<ul>
+<li>Projeto sob medida</li>
+<li>Suporte prioritário</li>
+</ul>
+</div>
+</section>
+
+<section class="form-section">
+<h2>Solicitar orçamento</h2>
+
+<label>Nome</label>
+<input id="nome">
+
+<label>WhatsApp</label>
+<input id="whats">
+
+<label>Tipo de projeto</label>
+<select id="tipo">
+<option value="150">Site Profissional – R$150/mês</option>
+<option value="250">Loja Virtual – R$250/mês</option>
+<option value="350">Sistema Web – R$350/mês</option>
+</select>
+
+<label>Descreva sua ideia</label>
+<textarea rows="4" id="desc"></textarea>
+
+<div class="valor">
+Plano mensal<br>
+<span id="total">R$ 150/mês</span>
+</div>
+
+<button onclick="enviar()">Enviar pelo WhatsApp</button>
+</section>
+
+</div>
+
+<footer>
+© 2026 • WebCod Studio • Projetos Profissionais
+</footer>
+
+<script>
+const tipo = document.getElementById("tipo");
+const total = document.getElementById("total");
+
+tipo.addEventListener("change",()=>{
+  total.innerText = "R$ " + tipo.value + "/mês";
+});
+
+function enviar(){
+  let msg = `Olá! Quero um projeto profissional 🚀%0A
+Nome: ${nome.value}%0A
+WhatsApp: ${whats.value}%0A
+Projeto: ${tipo.options[tipo.selectedIndex].text}%0A
+Detalhes: ${desc.value}`;
+  window.open("https://wa.me/5588988916133?text="+msg,"_blank");
+}
+</script>
+
+</body>
+</html>

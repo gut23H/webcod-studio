@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Projetos Pequenos | WebCod Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Poppins', sans-serif;
+    color:#fff;
+    min-height:100vh;
+    background: linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+    background-size:400% 400%;
+    animation:bgMove 18s ease infinite;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* PARTÍCULAS */
+.particles{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    overflow:hidden;
+}
+.particles span{
+    position:absolute;
+    width:8px;
+    height:8px;
+    background:rgba(0,198,255,0.4);
+    border-radius:50%;
+    animation:floatUp linear infinite;
+}
+@keyframes floatUp{
+    0%{transform:translateY(120vh);opacity:0;}
+    10%{opacity:1;}
+    100%{transform:translateY(-130vh);opacity:0;}
+}
+
+/* HEADER */
+header{
+    text-align:center;
+    padding:30px 10px 10px;
+    font-size:30px;
+    font-weight:700;
+    background:linear-gradient(90deg,#00c6ff,#00f2fe);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+    text-align:center;
+    font-size:14px;
+    opacity:0.85;
+    margin-bottom:30px;
+}
+
+/* CONTAINER */
+.container{
+    max-width:540px;
+    margin:auto;
+    padding:0 20px 50px;
+}
+
+/* EXPLICAÇÃO */
+.intro{
+    background:rgba(255,255,255,0.12);
+    padding:22px;
+    border-radius:18px;
+    margin-bottom:30px;
+    text-align:center;
+}
+.intro h2{
+    font-size:18px;
+    margin-bottom:10px;
+}
+.intro p{
+    font-size:13px;
+    opacity:0.9;
+}
+
+/* VÍDEOS */
+.demo{
+    margin-bottom:35px;
+}
+.demo h2{
+    text-align:center;
+    font-size:18px;
+    margin-bottom:15px;
+}
+.videos{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+.video-card{
+    background:rgba(255,255,255,0.12);
+    border-radius:14px;
+    overflow:hidden;
+}
+.video-card iframe{
+    width:100%;
+    height:140px;
+    border:none;
+}
+.video-card p{
+    font-size:12px;
+    padding:8px;
+    text-align:center;
+    opacity:0.85;
+}
+
+/* FORM */
+form{
+    background:rgba(255,255,255,0.12);
+    padding:25px;
+    border-radius:20px;
+    backdrop-filter:blur(8px);
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    font-size:14px;
+}
+
+input, select, textarea{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    margin-top:6px;
+    font-family:'Poppins';
+}
+
+textarea{resize:none;}
+
+.checks label{
+    font-size:13px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:8px;
+}
+
+/* VALOR */
+.valor{
+    margin-top:20px;
+    padding:18px;
+    background:rgba(0,0,0,0.35);
+    border-radius:14px;
+    text-align:center;
+}
+.valor span{
+    font-size:26px;
+    font-weight:700;
+    color:#00f2fe;
+}
+
+/* BOTÃO */
+button{
+    margin-top:20px;
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:14px;
+    font-size:16px;
+    font-weight:600;
+    background:linear-gradient(135deg,#00c6ff,#0072ff);
+    color:#fff;
+    cursor:pointer;
+    transition:0.3s;
+}
+button:hover{transform:scale(1.03);}
+
+footer{
+    text-align:center;
+    margin-top:30px;
+    font-size:13px;
+    opacity:0.6;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PARTÍCULAS -->
+<div class="particles">
+  <span style="left:10%;animation-duration:18s;"></span>
+  <span style="left:25%;animation-duration:22s;"></span>
+  <span style="left:40%;animation-duration:20s;"></span>
+  <span style="left:55%;animation-duration:24s;"></span>
+  <span style="left:70%;animation-duration:19s;"></span>
+  <span style="left:85%;animation-duration:23s;"></span>
+</div>
+
+<header>Projetos Pequenos</header>
+<div class="subtitle">WebCod Studio • Simples, acessível e profissional</div>
+
+<div class="container">
+
+<!-- EXPLICAÇÃO -->
+<section class="intro">
+<h2>Como funciona?</h2>
+<p>
+❤️ <strong>Homenagens</strong> são feitas com <strong>pagamento único</strong>.<br>
+🔁 <strong>Outros projetos</strong> funcionam como <strong>plano mensal</strong>,
+com suporte e atualizações.<br><br>
+💰 Valores acessíveis: <strong>R$50 a R$100</strong>
+</p>
+</section>
+
+<!-- EXEMPLOS -->
+<section class="demo">
+<h2>Exemplos reais 👇</h2>
+
+<div class="videos">
+<div class="video-card">
+<iframe src="https://www.youtube.com/embed/ID_DO_VIDEO"></iframe>
+<p>Homenagem (pagamento único)</p>
+</div>
+
+<div class="video-card">
+<iframe src="https://www.youtube.com/embed/ID_DO_VIDEO"></iframe>
+<p>Página mensal</p>
+</div>
+</div>
+</section>
+
+<!-- FORMULÁRIO -->
+<form>
+
+<label>Seu nome</label>
+<input type="text" id="nome" required>
+
+<label>WhatsApp</label>
+<input type="text" id="whats" required>
+
+<label>Escolha o tipo</label>
+<select id="tipo">
+<option value="50">Homenagem (pagamento único) – R$50</option>
+<option value="70">Página pessoal (plano mensal) – R$70/mês</option>
+<option value="100">Landing page (plano mensal) – R$100/mês</option>
+</select>
+
+<label>Prazo</label>
+<select id="prazo">
+<option value="0">Normal</option>
+<option value="20">Urgente (+R$20)</option>
+</select>
+
+<label>Extras</label>
+<div class="checks">
+<label><input type="checkbox" value="10" class="extra"> Botão WhatsApp</label>
+<label><input type="checkbox" value="15" class="extra"> Animações extras</label>
+<label><input type="checkbox" value="20" class="extra"> Publicar online</label>
+</div>
+
+<label>Explique sua ideia</label>
+<textarea rows="4" id="desc"></textarea>
+
+<div class="valor">
+Valor inicial<br>
+<span id="total">R$ 50</span>
+</div>
+
+<button type="button" onclick="enviar()">Enviar pelo WhatsApp</button>
+
+</form>
+
+<footer>
+© 2026 • WebCod Studio
+</footer>
+
+</div>
+
+<script>
+function calcular(){
+    let tipo = Number(document.getElementById("tipo").value);
+    let prazo = Number(document.getElementById("prazo").value);
+    let extras = document.querySelectorAll(".extra:checked");
+    let total = tipo + prazo;
+    extras.forEach(e => total += Number(e.value));
+    document.getElementById("total").innerText = "R$ " + total;
+}
+document.querySelectorAll("select, .extra").forEach(el=>{
+    el.addEventListener("change", calcular);
+});
+
+function enviar(){
+    let nome = document.getElementById("nome").value;
+    let whats = document.getElementById("whats").value;
+    let desc = document.getElementById("desc").value;
+    let valor = document.getElementById("total").innerText;
+
+    let msg = `Olá! Quero um projeto pequeno 🚀%0A
+Nome: ${nome}%0A
+WhatsApp: ${whats}%0A
+Detalhes: ${desc}%0A
+Valor inicial: ${valor}`;
+
+    window.open("https://wa.me/5588988916133?text=" + msg, "_blank");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>WebCod Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Poppins', sans-serif;
+    color:#fff;
+    min-height:100vh;
+    background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+    background-size:400% 400%;
+    animation:gradientBG 20s ease infinite;
+    overflow-x:hidden;
+}
+
+/* FUNDO GRADIENTE */
+@keyframes gradientBG{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* PARTÍCULAS */
+.particles{
+    position:fixed;
+    inset:0;
+    z-index:-3;
+    overflow:hidden;
+}
+.particles span{
+    position:absolute;
+    width:8px;
+    height:8px;
+    background:rgba(0,198,255,0.4);
+    border-radius:50%;
+    animation:floatUp linear infinite;
+}
+@keyframes floatUp{
+    0%{transform:translateY(120vh);opacity:0;}
+    10%{opacity:1;}
+    100%{transform:translateY(-140vh);opacity:0;}
+}
+.particles span:nth-child(n){
+    animation-duration:18s;
+}
+.particles span:nth-child(odd){
+    animation-duration:26s;
+}
+
+/* VITRINES FLUTUANTES */
+.vitrines{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+}
+.vitrine{
+    position:absolute;
+    width:180px;
+    height:120px;
+    border-radius:18px;
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(10px);
+    animation:floatVitrine 14s ease-in-out infinite;
+}
+@keyframes floatVitrine{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-30px);}
+    100%{transform:translateY(0);}
+}
+.vitrine:nth-child(1){top:20%;left:5%;}
+.vitrine:nth-child(2){top:60%;left:10%;animation-duration:18s;}
+.vitrine:nth-child(3){top:30%;right:5%;}
+.vitrine:nth-child(4){top:70%;right:12%;animation-duration:20s;}
+
+/* HEADER */
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:18px;
+    text-align:center;
+    background:rgba(0,0,0,.25);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    z-index:10;
+}
+.logo{
+    font-size:22px;
+    font-weight:800;
+    letter-spacing:1px;
+    background:linear-gradient(90deg,#00c6ff,#00f2fe,#00c6ff);
+    background-size:200% auto;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:logoGlow 4s linear infinite;
+}
+@keyframes logoGlow{
+    0%{background-position:0%;}
+    100%{background-position:200%;}
+}
+
+/* CONTAINER */
+.container{
+    max-width:480px;
+    margin:auto;
+    padding:120px 20px 40px;
+    text-align:center;
+    animation:fadeUp 1.2s ease;
+}
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* IMAGEM */
+.hero-image{
+    width:100%;
+    max-width:300px;
+    margin:20px auto;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.4);
+    animation:imageFade 1.6s ease;
+}
+@keyframes imageFade{
+    from{opacity:0; transform:scale(.95);}
+    to{opacity:1; transform:scale(1);}
+}
+
+.subtitle{
+    font-size:15px;
+    opacity:.9;
+    margin-bottom:30px;
+}
+
+/* BOTÕES */
+.btn{
+    display:block;
+    padding:16px;
+    margin:18px 0 6px;
+    border-radius:16px;
+    font-weight:600;
+    font-size:15px;
+    text-decoration:none;
+    background:linear-gradient(135deg,#00f2fe,#00c6ff);
+    color:#002b36;
+    box-shadow:0 0 25px rgba(0,242,254,.6);
+    transition:.35s;
+}
+.btn:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 40px rgba(0,242,254,.9);
+}
+
+.desc{
+    font-size:13px;
+    opacity:.85;
+    margin-bottom:18px;
+}
+
+/* CARD */
+.card{
+    background:rgba(255,255,255,.12);
+    padding:22px;
+    border-radius:18px;
+    margin-top:28px;
+    backdrop-filter:blur(10px);
+}
+
+/* SOCIAL */
+.social{
+    margin-top:30px;
+    display:flex;
+    gap:15px;
+    justify-content:center;
+}
+.social a{
+    text-decoration:none;
+    color:#fff;
+    font-size:14px;
+    padding:10px 20px;
+    border-radius:30px;
+    background:rgba(255,255,255,.18);
+    transition:.3s;
+}
+.social a:hover{
+    background:rgba(255,255,255,.35);
+}
+
+footer{
+    margin-top:35px;
+    font-size:13px;
+    opacity:.6;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <span class="logo">WebCod Studio</span>
+</header>
+
+<!-- FUNDO -->
+<div class="particles">
+  <span style="left:5%"></span><span style="left:15%"></span><span style="left:30%"></span>
+  <span style="left:45%"></span><span style="left:60%"></span><span style="left:75%"></span>
+  <span style="left:90%"></span>
+</div>
+
+<div class="vitrines">
+    <div class="vitrine"></div>
+    <div class="vitrine"></div>
+    <div class="vitrine"></div>
+    <div class="vitrine"></div>
+</div>
+
+<div class="container">
+
+    <img src="ima1.jpeg" class="hero-image" alt="WebCod Studio">
+
+    <div class="subtitle">
+        Criação de sites profissionais sob medida para pessoas e negócios
+    </div>
+
+    <a class="btn" href="projeto-pequeno.html">
+        🚀 Solicitar Projeto Personalizado
+    </a>
+    <div class="desc">
+        Homenagens, páginas pessoais e sites simples<br>
+        <strong>A partir de R$50</strong>
+    </div>
+
+    <a class="btn" href="projetos-profissionais.html">
+        🏢 Conhecer Planos Profissionais
+    </a>
+    <div class="desc">
+        Sites empresariais, lojas virtuais e sistemas<br>
+        <strong>Planos mensais</strong>
+    </div>
+
+    <div class="card">
+        ✔ Atendimento direto com o desenvolvedor<br>
+        ✔ Processo simples e transparente<br>
+        ✔ Design moderno e profissional
+    </div>
+
+    <div class="social">
+        <a href="https://wa.me/5588988916133" target="_blank">📱 WhatsApp</a>
+        <a href="https://www.instagram.com/_eu_silva_28" target="_blank">📸 Instagram</a>
+    </div>
+
+    <footer>
+        © 2026 • WebCod Studio
+    </footer>
+
+</div>
+
+</body>
+</html>
