@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title> PengWorks</title>
+<title>PengWorks — Sites Profissionais</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -11,190 +11,157 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-    font-family:'Poppins', sans-serif;
-    color:#fff;
+    font-family:'Poppins',sans-serif;
     min-height:100vh;
-    background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
-    background-size:400% 400%;
-    animation:gradientBG 20s ease infinite;
+    color:#fff;
+    background:
+      radial-gradient(circle at 20% 10%,#1e4c5f,transparent 40%),
+      radial-gradient(circle at 80% 90%,#0d2a38,transparent 40%),
+      #070f14;
     overflow-x:hidden;
 }
 
-/* FUNDO GRADIENTE */
-@keyframes gradientBG{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
-}
-
-/* PARTÍCULAS */
-.particles{
-    position:fixed;
-    inset:0;
-    z-index:-3;
-    overflow:hidden;
-}
-.particles span{
-    position:absolute;
-    width:8px;
-    height:8px;
-    background:rgba(0,198,255,0.4);
-    border-radius:50%;
-    animation:floatUp linear infinite;
-}
-@keyframes floatUp{
-    0%{transform:translateY(120vh);opacity:0;}
-    10%{opacity:1;}
-    100%{transform:translateY(-140vh);opacity:0;}
-}
-.particles span:nth-child(n){
-    animation-duration:18s;
-}
-.particles span:nth-child(odd){
-    animation-duration:26s;
-}
-
-/* VITRINES FLUTUANTES */
-.vitrines{
-    position:fixed;
-    inset:0;
-    z-index:-2;
-}
-.vitrine{
-    position:absolute;
-    width:180px;
-    height:120px;
-    border-radius:18px;
-    background:rgba(255,255,255,0.06);
-    backdrop-filter:blur(10px);
-    animation:floatVitrine 14s ease-in-out infinite;
-}
-@keyframes floatVitrine{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-30px);}
-    100%{transform:translateY(0);}
-}
-.vitrine:nth-child(1){top:20%;left:5%;}
-.vitrine:nth-child(2){top:60%;left:10%;animation-duration:18s;}
-.vitrine:nth-child(3){top:30%;right:5%;}
-.vitrine:nth-child(4){top:70%;right:12%;animation-duration:20s;}
-
-/* HEADER */
+/* ================= HEADER ================= */
 header{
     position:fixed;
     top:0;
     width:100%;
     padding:18px;
     text-align:center;
-    background:rgba(0,0,0,.25);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid rgba(255,255,255,.08);
+    background:rgba(5,15,20,.65);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,.06);
     z-index:10;
 }
 .logo{
-    font-size:22px;
+    font-size:26px;
     font-weight:800;
     letter-spacing:1px;
-    background:linear-gradient(90deg,#00c6ff,#00f2fe,#00c6ff);
+    background:linear-gradient(90deg,#00f2fe,#00c6ff,#00f2fe);
     background-size:200% auto;
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
-    animation:logoGlow 4s linear infinite;
+    animation:logo 4s linear infinite;
 }
-@keyframes logoGlow{
-    0%{background-position:0%;}
-    100%{background-position:200%;}
+@keyframes logo{
+    to{background-position:200%;}
 }
 
-/* CONTAINER */
+/* ================= CONTAINER ================= */
 .container{
-    max-width:480px;
+    max-width:520px;
     margin:auto;
-    padding:120px 20px 40px;
+    padding:130px 20px 60px;
     text-align:center;
-    animation:fadeUp 1.2s ease;
+    animation:fade 1.2s ease;
 }
-@keyframes fadeUp{
-    from{opacity:0; transform:translateY(30px);}
-    to{opacity:1; transform:translateY(0);}
+@keyframes fade{
+    from{opacity:0;transform:translateY(40px);}
+    to{opacity:1;transform:translateY(0);}
 }
 
-/* IMAGEM */
-.hero-image{
+/* ================= HERO ================= */
+.hero{
+    background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.03));
+    border-radius:28px;
+    padding:30px 22px 36px;
+    backdrop-filter:blur(18px);
+    box-shadow:0 40px 90px rgba(0,0,0,.6);
+}
+
+.hero img{
     width:100%;
-    max-width:350px;
-    margin:20px auto;
-    border-radius:20px;
-    box-shadow:0 15px 40px rgba(0,0,0,.4);
-    animation:imageFade 1.6s ease;
-}
-@keyframes imageFade{
-    from{opacity:0; transform:scale(.95);}
-    to{opacity:1; transform:scale(1);}
+    max-width:340px;
+    margin-bottom:20px;
+    border-radius:22px;
 }
 
-.subtitle{
+.hero h1{
+    font-size:28px;
+    font-weight:800;
+    line-height:1.2;
+    margin-bottom:12px;
+}
+
+.hero h1 span{
+    background:linear-gradient(90deg,#00f2fe,#00c6ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
     font-size:15px;
     opacity:.9;
-    margin-bottom:30px;
+    line-height:1.6;
 }
 
-/* BOTÕES */
+/* ================= BOTÕES ================= */
+.actions{
+    margin-top:34px;
+}
+
 .btn{
     display:block;
-    padding:16px;
-    margin:18px 0 6px;
-    border-radius:16px;
-    font-weight:600;
+    padding:18px;
+    margin-bottom:14px;
+    border-radius:20px;
+    font-weight:700;
     font-size:15px;
     text-decoration:none;
     background:linear-gradient(135deg,#00f2fe,#00c6ff);
-    color:#002b36;
-    box-shadow:0 0 25px rgba(0,242,254,.6);
+    color:#00252d;
+    box-shadow:0 0 50px rgba(0,242,254,.55);
     transition:.35s;
 }
 .btn:hover{
-    transform:scale(1.05);
-    box-shadow:0 0 40px rgba(0,242,254,.9);
+    transform:translateY(-4px) scale(1.05);
+    box-shadow:0 0 70px rgba(0,242,254,.9);
 }
 
 .desc{
     font-size:13px;
-    opacity:.85;
-    margin-bottom:18px;
+    opacity:.8;
+    margin-bottom:22px;
 }
 
-/* CARD */
-.card{
-    background:rgba(255,255,255,.12);
-    padding:22px;
+/* ================= BENEFÍCIOS ================= */
+.benefits{
+    margin-top:35px;
+    display:grid;
+    gap:14px;
+}
+
+.benefit{
+    background:rgba(255,255,255,.08);
     border-radius:18px;
-    margin-top:28px;
+    padding:16px;
+    font-size:14px;
     backdrop-filter:blur(10px);
 }
 
-/* SOCIAL */
+/* ================= SOCIAL ================= */
 .social{
-    margin-top:30px;
+    margin-top:40px;
     display:flex;
-    gap:15px;
     justify-content:center;
+    gap:14px;
 }
 .social a{
-    text-decoration:none;
+    padding:12px 22px;
+    border-radius:30px;
+    background:rgba(255,255,255,.16);
     color:#fff;
     font-size:14px;
-    padding:10px 20px;
-    border-radius:30px;
-    background:rgba(255,255,255,.18);
+    text-decoration:none;
     transition:.3s;
 }
 .social a:hover{
     background:rgba(255,255,255,.35);
 }
 
+/* ================= FOOTER ================= */
 footer{
-    margin-top:35px;
+    margin-top:45px;
     font-size:13px;
     opacity:.6;
 }
@@ -204,51 +171,44 @@ footer{
 <body>
 
 <header>
-    <span class="logo">PengWorks</span>
+    <div class="logo">PengWorks</div>
 </header>
-
-<!-- FUNDO -->
-<div class="particles">
-  <span style="left:5%"></span><span style="left:15%"></span><span style="left:30%"></span>
-  <span style="left:45%"></span><span style="left:60%"></span><span style="left:75%"></span>
-  <span style="left:90%"></span>
-</div>
-
-<div class="vitrines">
-    <div class="vitrine"></div>
-    <div class="vitrine"></div>
-    <div class="vitrine"></div>
-    <div class="vitrine"></div>
-</div>
 
 <div class="container">
 
-    <img src="bannser2.png" class="hero-image" alt="WebCod Studio">
+    <div class="hero">
+        <img src="bannser2.png" alt="PengWorks">
 
-    <div class="subtitle">
-        Criação de sites profissionais sob medida para pessoas e negócios
-    </div>
+        <h1>
+            Seu negócio no <span>mundo digital</span>
+        </h1>
 
-    <a class="btn" href="projeto-pequeno.html">
-        🚀 Solicitar Projeto Personalizado
-    </a>
-    <div class="desc">
-        Homenagens, páginas pessoais e sites simples<br>
-        <strong>A partir de R$50</strong>
-    </div>
+        <p>
+            Mais perto de quem compra, com sites modernos, rápidos e pensados para gerar resultados reais.
+        </p>
 
-    <a class="btn" href="projetos-profissionais.html">
-        🏢 Conhecer Planos Profissionais
-    </a>
-    <div class="desc">
-        Sites empresariais, lojas virtuais e sistemas<br>
-        <strong>Planos mensais</strong>
-    </div>
+        <div class="actions">
+            <a href="projeto-pequeno.html" class="btn">
+                🚀 Solicitar Projeto Personalizado
+            </a>
+            <div class="desc">
+                Páginas simples, homenagens e projetos rápidos<br>
+                <strong>A partir de R$50</strong>
+            </div>
 
-    <div class="card">
-        ✔ Atendimento direto com o desenvolvedor<br>
-        ✔ Processo simples e transparente<br>
-        ✔ Design moderno e profissional
+            <a href="projetos-profissionais.html" class="btn">
+                🏢 Conhecer Planos Profissionais
+            </a>
+            <div class="desc">
+                Sites empresariais, vitrines e lojas online
+            </div>
+        </div>
+
+        <div class="benefits">
+            <div class="benefit">✔ Atendimento direto com o desenvolvedor</div>
+            <div class="benefit">✔ Design profissional focado em vendas</div>
+            <div class="benefit">✔ Processo simples, rápido e transparente</div>
+        </div>
     </div>
 
     <div class="social">
@@ -264,5 +224,3 @@ footer{
 
 </body>
 </html>
-
-
