@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -21,7 +22,7 @@ body{
     overflow-x:hidden;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 header{
     position:fixed;
     top:0;
@@ -36,31 +37,23 @@ header{
 .logo{
     font-size:26px;
     font-weight:800;
-    letter-spacing:1px;
     background:linear-gradient(90deg,#00f2fe,#00c6ff,#00f2fe);
-    background-size:200% auto;
+    background-size:200%;
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
     animation:logo 4s linear infinite;
 }
-@keyframes logo{
-    to{background-position:200%;}
-}
+@keyframes logo{to{background-position:200%;}}
 
-/* ================= CONTAINER ================= */
+/* CONTAINER */
 .container{
     max-width:520px;
     margin:auto;
-    padding:130px 20px 60px;
+    padding:130px 20px 80px;
     text-align:center;
-    animation:fade 1.2s ease;
-}
-@keyframes fade{
-    from{opacity:0;transform:translateY(40px);}
-    to{opacity:1;transform:translateY(0);}
 }
 
-/* ================= HERO ================= */
+/* HERO */
 .hero{
     background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.03));
     border-radius:28px;
@@ -68,78 +61,58 @@ header{
     backdrop-filter:blur(18px);
     box-shadow:0 40px 90px rgba(0,0,0,.6);
 }
-
 .hero img{
     width:100%;
     max-width:340px;
-    margin-bottom:20px;
     border-radius:22px;
+    margin-bottom:20px;
 }
-
 .hero h1{
     font-size:28px;
     font-weight:800;
-    line-height:1.2;
-    margin-bottom:12px;
 }
-
 .hero h1 span{
     background:linear-gradient(90deg,#00f2fe,#00c6ff);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
-
 .hero p{
     font-size:15px;
     opacity:.9;
-    line-height:1.6;
+    margin-top:10px;
 }
 
-/* ================= BOTÕES ================= */
-.actions{
-    margin-top:34px;
-}
-
+/* BOTÕES */
+.actions{margin-top:30px;}
 .btn{
     display:block;
     padding:18px;
     margin-bottom:14px;
     border-radius:20px;
     font-weight:700;
-    font-size:15px;
-    text-decoration:none;
     background:linear-gradient(135deg,#00f2fe,#00c6ff);
     color:#00252d;
-    box-shadow:0 0 50px rgba(0,242,254,.55);
-    transition:.35s;
+    text-decoration:none;
+    box-shadow:0 0 40px rgba(0,242,254,.6);
+    transition:.3s;
 }
-.btn:hover{
-    transform:translateY(-4px) scale(1.05);
-    box-shadow:0 0 70px rgba(0,242,254,.9);
-}
+.btn:hover{transform:scale(1.05);}
+.desc{font-size:13px;opacity:.8;margin-bottom:20px;}
 
-.desc{
-    font-size:13px;
-    opacity:.8;
-    margin-bottom:22px;
-}
-
-/* ================= BENEFÍCIOS ================= */
+/* BENEFÍCIOS */
 .benefits{
-    margin-top:35px;
+    margin-top:30px;
     display:grid;
     gap:14px;
 }
-
 .benefit{
     background:rgba(255,255,255,.08);
     border-radius:18px;
     padding:16px;
     font-size:14px;
-    backdrop-filter:blur(10px);
 }
 
-/* ================= SOCIAL ================= */
+/* SOCIAL */
 .social{
     margin-top:40px;
     display:flex;
@@ -151,19 +124,86 @@ header{
     border-radius:30px;
     background:rgba(255,255,255,.16);
     color:#fff;
-    font-size:14px;
     text-decoration:none;
-    transition:.3s;
-}
-.social a:hover{
-    background:rgba(255,255,255,.35);
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 footer{
     margin-top:45px;
     font-size:13px;
     opacity:.6;
+}
+
+/* CHAT */
+.chat-btn{
+    position:fixed;
+    bottom:22px;
+    right:22px;
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#00f2fe,#00c6ff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+    color:#00252d;
+    cursor:pointer;
+    box-shadow:0 0 40px rgba(0,242,254,.8);
+    z-index:50;
+}
+
+.chat-box{
+    position:fixed;
+    bottom:100px;
+    right:22px;
+    width:320px;
+    max-height:420px;
+    background:#0b1f2a;
+    border-radius:22px;
+    display:none;
+    flex-direction:column;
+    overflow:hidden;
+    box-shadow:0 30px 70px rgba(0,0,0,.6);
+    z-index:50;
+}
+
+.chat-header{
+    padding:16px;
+    background:linear-gradient(135deg,#00f2fe,#00c6ff);
+    color:#00252d;
+    font-weight:700;
+}
+
+.chat-messages{
+    flex:1;
+    padding:16px;
+    overflow-y:auto;
+    font-size:14px;
+}
+
+.msg{margin-bottom:12px;line-height:1.4;}
+.bot{color:#00f2fe;}
+.user{text-align:right;}
+.typing{font-style:italic;opacity:.7;}
+
+.chat-input{
+    display:flex;
+    border-top:1px solid rgba(255,255,255,.1);
+}
+.chat-input input{
+    flex:1;
+    padding:14px;
+    border:none;
+    background:#07161f;
+    color:#fff;
+}
+.chat-input button{
+    padding:14px 18px;
+    border:none;
+    background:#00c6ff;
+    color:#00252d;
+    cursor:pointer;
 }
 </style>
 </head>
@@ -175,52 +215,101 @@ footer{
 </header>
 
 <div class="container">
-
     <div class="hero">
         <img src="bannser2.png" alt="PengWorks">
 
-        <h1>
-            Seu negócio no <span>mundo digital</span>
-        </h1>
-
-        <p>
-            Mais perto de quem compra, com sites modernos, rápidos e pensados para gerar resultados reais.
-        </p>
+        <h1>Seu negócio no <span>mundo digital</span></h1>
+        <p>Mais perto de quem compra, com sites modernos e profissionais.</p>
 
         <div class="actions">
-            <a href="projeto-pequeno.html" class="btn">
-                🚀 Solicitar Projeto Personalizado
-            </a>
-            <div class="desc">
-                Páginas simples, homenagens e projetos rápidos<br>
-                <strong>A partir de R$50</strong>
-            </div>
-
-            <a href="projetos-profissionais.html" class="btn">
-                🏢 Conhecer Planos Profissionais
-            </a>
-            <div class="desc">
-                Sites empresariais, vitrines e lojas online
-            </div>
+            <a href="#" class="btn">🚀 Solicitar Projeto</a>
+            <div class="desc">Projetos a partir de R$50</div>
         </div>
 
         <div class="benefits">
             <div class="benefit">✔ Atendimento direto com o desenvolvedor</div>
-            <div class="benefit">✔ Design profissional focado em vendas</div>
-            <div class="benefit">✔ Processo simples, rápido e transparente</div>
+            <div class="benefit">✔ Sites focados em vendas</div>
+            <div class="benefit">✔ Design moderno e profissional</div>
         </div>
     </div>
 
     <div class="social">
-        <a href="https://wa.me/5588988916133" target="_blank">📱 WhatsApp</a>
-        <a href="https://www.instagram.com/_eu_silva_28" target="_blank">📸 Instagram</a>
+        <a href="https://wa.me/5588988916133" target="_blank">WhatsApp</a>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
     </div>
 
-    <footer>
-        © 2026 • PengWorks
-    </footer>
-
+    <footer>© 2026 • PengWorks</footer>
 </div>
+
+<!-- CHAT -->
+<div class="chat-btn" onclick="toggleChat()">🤖</div>
+
+<div class="chat-box" id="chat">
+    <div class="chat-header">PengBot 🐧</div>
+    <div class="chat-messages" id="messages">
+        <div class="msg bot">Olá! 👋 Como Posso te ajudar😉</div>
+    </div>
+    <div class="chat-input">
+        <input id="input" placeholder="Digite sua dúvida...">
+        <button onclick="send()">Enviar</button>
+    </div>
+</div>
+
+<script>
+function toggleChat(){
+    const chat=document.getElementById('chat');
+    chat.style.display = chat.style.display==='flex' ? 'none' : 'flex';
+}
+
+function send(){
+    const input=document.getElementById('input');
+    const msg=input.value.trim();
+    if(!msg) return;
+
+    const messages=document.getElementById('messages');
+    messages.innerHTML+=`<div class="msg user">${msg}</div>`;
+    input.value="";
+
+    const typing=document.createElement('div');
+    typing.className='msg bot typing';
+    typing.innerText='PengBot está digitando...';
+    messages.appendChild(typing);
+    messages.scrollTop=messages.scrollHeight;
+
+    setTimeout(()=>{
+        typing.remove();
+        messages.innerHTML+=`<div class="msg bot">${reply(msg)}</div>`;
+        messages.scrollTop=messages.scrollHeight;
+    },1200);
+}
+
+function reply(text){
+    text=text.toLowerCase();
+
+    if(text.includes('valor')||text.includes('preço'))
+        return '💰 Projetos pequenos a partir de R$50. Sites profissionais R$150/mês, Loja virtual R$250/mês e Sistemas web R$350/mês.';
+
+    if(text.includes('pequeno'))
+        return '✨ Projetos pequenos incluem homenagens, páginas simples e vitrines online. Pagamento único a partir de R$50.';
+
+    if(text.includes('site'))
+        return '🌐 Criamos sites profissionais modernos, responsivos e focados em vendas.';
+
+    if(text.includes('loja'))
+        return '🛒 Lojas virtuais completas com pagamento online e produtos ilimitados.';
+
+    if(text.includes('sistema'))
+        return '⚙️ Sistemas web sob medida para o seu negócio.';
+
+    if(text.includes('prazo'))
+        return '⏱️ Projetos pequenos: 1 a 3 dias. Sites profissionais: 5 a 7 dias.';
+
+    if(text.includes('pagamento'))
+        return '💳 Aceitamos Pix e planos mensais para projetos grandes.';
+
+    return '🤖 Posso te ajudar com valores, prazos, tipos de site ou projetos pequenos e grandes 😉';
+}
+</script>
 
 </body>
 </html>
