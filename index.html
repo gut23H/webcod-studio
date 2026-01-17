@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -49,7 +48,7 @@ header{
 .container{
     max-width:520px;
     margin:auto;
-    padding:130px 20px 80px;
+    padding:130px 20px 60px;
     text-align:center;
 }
 
@@ -134,7 +133,7 @@ footer{
     opacity:.6;
 }
 
-/* CHAT */
+/* ================= CHAT ================= */
 .chat-btn{
     position:fixed;
     bottom:22px;
@@ -182,14 +181,13 @@ footer{
     font-size:14px;
 }
 
-.msg{margin-bottom:12px;line-height:1.4;}
+.msg{margin-bottom:12px;}
 .bot{color:#00f2fe;}
 .user{text-align:right;}
-.typing{font-style:italic;opacity:.7;}
+.typing{opacity:.7;font-style:italic;}
 
 .chat-input{
     display:flex;
-    border-top:1px solid rgba(255,255,255,.1);
 }
 .chat-input input{
     flex:1;
@@ -222,14 +220,17 @@ footer{
         <p>Mais perto de quem compra, com sites modernos e profissionais.</p>
 
         <div class="actions">
-            <a href="#" class="btn">🚀 Solicitar Projeto</a>
-            <div class="desc">Projetos a partir de R$50</div>
+            <a href="projeto-pequeno.html" class="btn">🚀 Solicitar Projeto Personalizado</a>
+            <div class="desc">Projetos pequenos a partir de R$50</div>
+
+            <a href="projetos-profissionais.html" class="btn">🏢 Conhecer Planos Profissionais</a>
+            <div class="desc">Sites empresariais e lojas online</div>
         </div>
 
         <div class="benefits">
             <div class="benefit">✔ Atendimento direto com o desenvolvedor</div>
-            <div class="benefit">✔ Sites focados em vendas</div>
             <div class="benefit">✔ Design moderno e profissional</div>
+            <div class="benefit">✔ Processo simples e rápido</div>
         </div>
     </div>
 
@@ -245,9 +246,9 @@ footer{
 <div class="chat-btn" onclick="toggleChat()">🤖</div>
 
 <div class="chat-box" id="chat">
-    <div class="chat-header">PengBot 🐧</div>
+    <div class="chat-header">PengBot</div>
     <div class="chat-messages" id="messages">
-        <div class="msg bot">Olá! 👋 Como Posso te ajudar😉</div>
+        <div class="msg bot">Olá 👋 Posso te ajudar com valores, prazos ou tipos de site 😉</div>
     </div>
     <div class="chat-input">
         <input id="input" placeholder="Digite sua dúvida...">
@@ -257,59 +258,198 @@ footer{
 
 <script>
 function toggleChat(){
-    const chat=document.getElementById('chat');
-    chat.style.display = chat.style.display==='flex' ? 'none' : 'flex';
+    const c=document.getElementById('chat');
+    c.style.display=c.style.display==='flex'?'none':'flex';
 }
 
 function send(){
-    const input=document.getElementById('input');
-    const msg=input.value.trim();
-    if(!msg) return;
+    const i=document.getElementById('input');
+    const t=i.value.trim();
+    if(!t) return;
 
-    const messages=document.getElementById('messages');
-    messages.innerHTML+=`<div class="msg user">${msg}</div>`;
-    input.value="";
+    const m=document.getElementById('messages');
+    m.innerHTML+=`<div class="msg user">${t}</div>`;
+    i.value="";
 
-    const typing=document.createElement('div');
-    typing.className='msg bot typing';
-    typing.innerText='PengBot está digitando...';
-    messages.appendChild(typing);
-    messages.scrollTop=messages.scrollHeight;
+    const d=document.createElement('div');
+    d.className='msg bot typing';
+    d.innerText='Digitando...';
+    m.appendChild(d);
 
     setTimeout(()=>{
-        typing.remove();
-        messages.innerHTML+=`<div class="msg bot">${reply(msg)}</div>`;
-        messages.scrollTop=messages.scrollHeight;
-    },1200);
+        d.remove();
+        m.innerHTML+=`<div class="msg bot">${reply(t)}</div>`;
+        m.scrollTop=m.scrollHeight;
+    },1000);
 }
 
-function reply(text){
-    text=text.toLowerCase();
+function reply(t){
+    t = t.toLowerCase();
 
-    if(text.includes('valor')||text.includes('preço'))
-        return '💰 Projetos pequenos a partir de R$50. Sites profissionais R$150/mês, Loja virtual R$250/mês e Sistemas web R$350/mês.';
+    /* =======================
+       💰 VALORES E PLANOS
+    ======================= */
+    if(t.includes('valor') || t.includes('preço') || t.includes('quanto custa') || t.includes('custa'))
+        return '💰 Projetos pequenos a partir de R$50. Site profissional: R$150/mês. Loja virtual: R$250/mês. Sistema web: R$350/mês.';
 
-    if(text.includes('pequeno'))
-        return '✨ Projetos pequenos incluem homenagens, páginas simples e vitrines online. Pagamento único a partir de R$50.';
+    if(t.includes('barato') || t.includes('mais barato'))
+        return '✨ Temos projetos simples e acessíveis a partir de R$50, ideais para começar no digital.';
 
-    if(text.includes('site'))
-        return '🌐 Criamos sites profissionais modernos, responsivos e focados em vendas.';
+    if(t.includes('caro'))
+        return '💡 O valor depende do tipo de projeto, mas sempre buscamos a melhor solução custo-benefício.';
 
-    if(text.includes('loja'))
-        return '🛒 Lojas virtuais completas com pagamento online e produtos ilimitados.';
+    if(t.includes('mensal') || t.includes('assinatura'))
+        return '📅 Planos mensais incluem suporte, manutenção e melhorias contínuas.';
 
-    if(text.includes('sistema'))
-        return '⚙️ Sistemas web sob medida para o seu negócio.';
+    if(t.includes('avista') || t.includes('à vista'))
+        return '💳 Projetos pequenos são pagamento único via Pix.';
 
-    if(text.includes('prazo'))
-        return '⏱️ Projetos pequenos: 1 a 3 dias. Sites profissionais: 5 a 7 dias.';
+    /* =======================
+       🧩 TIPOS DE PROJETOS
+    ======================= */
+    if(t.includes('site') && t.includes('simples'))
+        return '🌐 Sites simples são ideais para apresentação, links e informações básicas.';
 
-    if(text.includes('pagamento'))
-        return '💳 Aceitamos Pix e planos mensais para projetos grandes.';
+    if(t.includes('portfólio') || t.includes('portfolio'))
+        return '🎨 Criamos portfólios profissionais para mostrar seu trabalho e atrair clientes.';
 
-    return '🤖 Posso te ajudar com valores, prazos, tipos de site ou projetos pequenos e grandes 😉';
+    if(t.includes('vitrine'))
+        return '🛍️ Vitrine online perfeita para mostrar produtos sem carrinho de compras.';
+
+    if(t.includes('landing page') || t.includes('pagina de vendas'))
+        return '🚀 Landing pages focadas em conversão e vendas.';
+
+    if(t.includes('blog'))
+        return '✍️ Criamos blogs modernos e fáceis de atualizar.';
+
+    if(t.includes('institucional'))
+        return '🏢 Sites institucionais para empresas e negócios locais.';
+
+    /* =======================
+       🛒 LOJA VIRTUAL
+    ======================= */
+    if(t.includes('loja') || t.includes('ecommerce'))
+        return '🛒 Loja virtual com carrinho, pagamentos online e painel administrativo.';
+
+    if(t.includes('pix') && t.includes('loja'))
+        return '💳 A loja pode aceitar Pix, cartão e outros meios de pagamento.';
+
+    if(t.includes('produto') || t.includes('produtos'))
+        return '📦 Produtos ilimitados, com fotos, preços e descrições.';
+
+    if(t.includes('frete'))
+        return '🚚 Integração com cálculo de frete pode ser adicionada.';
+
+    /* =======================
+       ⚙️ SISTEMAS WEB
+    ======================= */
+    if(t.includes('sistema'))
+        return '⚙️ Sistemas web sob medida para controle, gestão e automações.';
+
+    if(t.includes('login'))
+        return '🔐 Sistemas com login, cadastro de usuários e permissões.';
+
+    if(t.includes('painel'))
+        return '📊 Painel administrativo para controle do sistema.';
+
+    if(t.includes('gestão') || t.includes('controle'))
+        return '📈 Sistemas para gestão de dados, clientes ou serviços.';
+
+    /* =======================
+       ⏱️ PRAZOS
+    ======================= */
+    if(t.includes('prazo') || t.includes('tempo') || t.includes('demora'))
+        return '⏱️ Pequenos projetos: 1 a 3 dias. Sites profissionais: 5 a 7 dias. Sistemas: conforme complexidade.';
+
+    if(t.includes('urgente'))
+        return '⚡ Projetos urgentes podem ser avaliados.';
+
+    /* =======================
+       🛠️ SUPORTE E MANUTENÇÃO
+    ======================= */
+    if(t.includes('suporte'))
+        return '🛠️ Oferecemos suporte técnico conforme o plano contratado.';
+
+    if(t.includes('manutenção'))
+        return '🔧 Manutenção mensal disponível para manter tudo funcionando.';
+
+    if(t.includes('erro') || t.includes('bug') || t.includes('problema'))
+        return '⚠️ Me explique o problema que eu te ajudo agora mesmo.';
+
+    /* =======================
+       ✏️ ALTERAÇÕES
+    ======================= */
+    if(t.includes('alterar') || t.includes('editar') || t.includes('mudança'))
+        return '✏️ Sim, você pode solicitar ajustes após a entrega.';
+
+    if(t.includes('atualizar'))
+        return '🔄 Atualizações podem ser feitas conforme o plano.';
+
+    /* =======================
+       🌍 DOMÍNIO E HOSPEDAGEM
+    ======================= */
+    if(t.includes('domínio') || t.includes('dominio'))
+        return '🌍 Ajudamos na compra e configuração do domínio.';
+
+    if(t.includes('hospedagem'))
+        return '☁️ Indicamos e configuramos a melhor hospedagem.';
+
+    if(t.includes('email profissional'))
+        return '📧 Podemos configurar e-mail profissional com seu domínio.';
+
+    /* =======================
+       📱 RESPONSIVO E DESIGN
+    ======================= */
+    if(t.includes('celular') || t.includes('mobile') || t.includes('responsivo'))
+        return '📱 Todos os sites funcionam perfeitamente no celular.';
+
+    if(t.includes('design'))
+        return '🎨 Design moderno, limpo e profissional.';
+
+    if(t.includes('cores') || t.includes('logo'))
+        return '🖌️ O design segue sua marca, cores e identidade visual.';
+
+    /* =======================
+       🔒 SEGURANÇA
+    ======================= */
+    if(t.includes('segurança') || t.includes('seguro') || t.includes('https'))
+        return '🔒 Utilizamos certificado SSL e boas práticas de segurança.';
+
+    /* =======================
+       🔍 GOOGLE E MARKETING
+    ======================= */
+    if(t.includes('google'))
+        return '🔍 Posso orientar sobre SEO básico para aparecer no Google.';
+
+    if(t.includes('anúncio') || t.includes('ads'))
+        return '📢 Posso orientar sobre anúncios online.';
+
+    /* =======================
+       📲 INTEGRAÇÕES
+    ======================= */
+    if(t.includes('whatsapp'))
+        return '📲 Integração direta com WhatsApp.';
+
+    if(t.includes('instagram'))
+        return '📸 Integração com Instagram e redes sociais.';
+
+    if(t.includes('chat'))
+        return '🤖 Este chat pode ser integrado ao seu site.';
+
+    /* =======================
+       👤 ATENDIMENTO HUMANO
+    ======================= */
+    if(t.includes('falar') || t.includes('atendimento') || t.includes('contato'))
+        return '📞 Você pode falar comigo diretamente pelo WhatsApp.';
+
+    /* =======================
+       ❓ INDEFINIDO
+    ======================= */
+    return '🤖 Posso te ajudar com valores, prazos, tipos de site ou resolver qualquer dúvida 😉';
 }
+
 </script>
 
 </body>
 </html>
+
